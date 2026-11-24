@@ -107,3 +107,56 @@ entidades y realizar consultas sobre una base de datos SQLite,
 cumpliendo los requerimientos planteados en la actividad académica.
 
 Los datos utilizados son ficticios y tienen fines educativos.
+## Modelo relacional de la base de datos
+
+El siguiente diagrama representa las cuatro entidades
+del sistema de clínicas veterinarias, sus atributos,
+claves primarias, claves foráneas y relaciones
+de uno a muchos (1:N).
+
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"darkMode": false, "primaryColor": "#DBEAFE", "primaryTextColor": "#111827", "primaryBorderColor": "#2563EB", "lineColor": "#94A3B8", "tertiaryColor": "#F1F5F9", "attributeBackgroundColorOdd": "#FFFFFF", "attributeBackgroundColorEven": "#E2E8F0", "textColor": "#111827"}}}%%
+erDiagram
+    direction TB
+
+    clinicas ||--o{ consultorios : contiene
+    consultorios ||--o{ veterinarios : agrupa
+    veterinarios ||--o{ historias_clinicas : genera
+
+    clinicas {
+        INTEGER id PK
+        VARCHAR(100) nombre_comercial
+        VARCHAR(150) direccion
+        VARCHAR(100) veterinario_responsable
+    }
+
+    consultorios {
+        INTEGER id PK
+        VARCHAR(100) nombre
+        VARCHAR(100) especialidad
+        INTEGER clinica_id FK
+    }
+
+    veterinarios {
+        INTEGER id PK
+        VARCHAR(100) nombres
+        VARCHAR(100) apellidos
+        VARCHAR(100) correo
+        VARCHAR(50) licencia_profesional
+        INTEGER consultorio_id FK
+    }
+
+    historias_clinicas {
+        INTEGER id PK
+        DATE fecha_atencion
+        VARCHAR(250) diagnostico
+        VARCHAR(250) tratamiento
+        VARCHAR(100) nombre_mascota
+        INTEGER veterinario_id FK
+    }
+
+    style clinicas fill:#DBEAFE,stroke:#2563EB,color:#111827
+    style consultorios fill:#DCFCE7,stroke:#16A34A,color:#111827
+    style veterinarios fill:#FEF3C7,stroke:#D97706,color:#111827
+    style historias_clinicas fill:#F3E8FF,stroke:#9333EA,color:#111827
+```
