@@ -1,0 +1,130 @@
+
+/* =====================================
+   VETMANAGER - DARK MODE
+   ===================================== */
+
+:root {
+    --fondo: #0F172A;
+    --sidebar: #111827;
+    --tarjeta: #1E293B;
+    --borde: #334155;
+    --verde: #10B981;
+    --violeta: #8B5CF6;
+    --texto: #F8FAFC;
+    --texto-secundario: #94A3B8;
+}
+
+/* Contenedor principal */
+
+.stApp {
+    background-color: var(--fondo);
+}
+
+.block-container {
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+    max-width: 1500px;
+}
+
+/* Menu lateral */
+
+[data-testid="stSidebar"] {
+    background-color: var(--sidebar);
+    border-right: 1px solid var(--borde);
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] {
+    gap: 8px;
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label {
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label:hover {
+    background-color: var(--tarjeta);
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) {
+    background-color: rgba(16, 185, 129, 0.15);
+    border-left: 3px solid var(--verde);
+}
+
+/* Titulos */
+
+h1 {
+    color: var(--texto);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+h2, h3 {
+    color: var(--texto);
+    font-weight: 600;
+}
+
+/* Tarjetas de indicadores */
+
+[data-testid="stMetric"] {
+    background: linear-gradient(
+        135deg, #1E293B, #172033
+    );
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+
+[data-testid="stMetric"]:hover {
+    transform: translateY(-3px);
+    border-color: var(--verde);
+}
+
+[data-testid="stMetricValue"] {
+    color: var(--verde);
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--texto-secundario);
+}
+
+/* Tablas */
+
+[data-testid="stDataFrame"] {
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Bloques de codigo */
+
+[data-testid="stCodeBlock"] {
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+}
+
+/* Botones */
+
+.stButton > button {
+    background-color: var(--verde);
+    color: #0F172A;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.stButton > button:hover {
+    background-color: #34D399;
+    color: #0F172A;
+}
+
+/* Separadores */
+
+hr {
+    border-color: var(--borde);
+}
